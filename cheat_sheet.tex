@@ -105,6 +105,9 @@ TCP packet. Consists of header and data.
 \textbf{Go-Back-N}
 In case a timeout occures, all packages sent after lost packages get resend immediately. 
 
+\textbf{Selective Repeat}
+Every packages gets an own ACK. In case timeout occures, only lost package gets resend.
+
 \textbf{Sequence Number (SEQ)[header field]}
 Numbering of data within segment. SEQ = first byte in the payload (data) of segment. Gets initialized to random number (ISN) at start of connection.
 
