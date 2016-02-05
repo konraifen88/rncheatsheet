@@ -102,6 +102,9 @@ Bytes allowed to be sent before receiving next ACK.
 \textbf{Segment}
 TCP packet. Consists of header and data.
 
+\textbf{Go-Back-N}
+In case a timeout occures, all packages sent after lost packages get resend immediately. 
+
 \textbf{Sequence Number (SEQ)[header field]}
 Numbering of data within segment. SEQ = first byte in the payload (data) of segment. Gets initialized to random number (ISN) at start of connection.
 
@@ -195,6 +198,17 @@ Metric for route: $\sum{\frac{100 Mbits}{Bandwidth}}$ of all links.
 
 \subsection{Enhanced Gateway Routing Protocol}
 Metric for route: $ \frac{10 Gbps}{min(Bandwidth)} + \sum\limits_{link i}^{n} \frac{D_i}{10\mu s}$, with D=Delay
+
+\subsection{Dijkstra}
+Algorithm to find shortest path to all nodes.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{media/dijkstra.png}
+    \caption{Example of the dijkstra algorithm}
+    \label{fig:dijkstra}
+\end{figure}
+
 
 \end{document}
 
