@@ -186,5 +186,15 @@ Measures the throughput: $bdp [\frac{byte}{sec}] = \frac{Windowsize [byte]}{RTT 
 \subsection{Whats new}
 The usual stuff. Use the most specific (smallest) subnet matching in routing.
 
+\section{Routing Protocols}
+\subsection{Routing Information Protocol}
+Metric is the amount of Hops.
+
+\subsection{Open Shortest Path First}
+Metric for route: $\sum{\frac{100 Mbits}{Bandwidth}}$ of all links.
+
+\subsection{Enhanced Gateway Routing Protocol}
+Metric for route: $ \frac{10 Gbps}{min(Bandwidth)} + \sum\limits_{link i}^{n} \frac{D_i}{10\mu s}$, with D=Delay
+
 \end{document}
 
