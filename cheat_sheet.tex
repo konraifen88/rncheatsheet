@@ -219,7 +219,7 @@ Algorithm to find shortest path to all nodes.
 \end{figure}
 
 \section{Unit-Conversion}
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.49\linewidth}
 	\begin{tabular}{|l|r|l|}
 		\hline
 		\textbf{SI-Unit} & \multicolumn{1}{l|}{\textbf{non SI-Unit}} & \textbf{Factor} \\ \hline
@@ -227,8 +227,29 @@ Algorithm to find shortest path to all nodes.
 		1s               & 1.000.000 $ \mu $s                                  & $ 10^{6} $      \\ \hline
 		1s               & 1.000 ms                                  & $ 10^{3} $      \\ \hline
 	\end{tabular}
-	
 \end{minipage}
+\begin{minipage}{0.49\linewidth}
+	\begin{tabular}{|l|r|l|}
+		\hline
+		\textbf{Unit} & \multicolumn{1}{l|}{\textbf{bytes}} & \textbf{Factor} \\ \hline
+		kilo               & 1.000 B                         & $ 10^{3} $      \\ \hline
+		mega               & 1.000.000 B                     & $ 10^{6} $      \\ \hline
+		giga               & 1.000.000.000 B                 & $ 10^{9} $      \\ \hline
+	\end{tabular}
+\end{minipage}
+
+\subsection{Decimal - Binary}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l|r|l|l|}
+		\hline
+		128 & \multicolumn{1}{l|}{1000 0000} & 248 & 1111 1000 \\ \hline
+		192 & 1100 0000                      & 252 & 1111 1100 \\ \hline
+		224 & 1110 0000                      & 254 & 1111 1110 \\ \hline
+		240 & 1111 0000                      & 255 & 1111 1111 \\ \hline
+	\end{tabular}
+\end{table}
 
 \newpage
 \section{Theoriefragen}
