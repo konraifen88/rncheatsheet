@@ -195,7 +195,7 @@ The usual implementation looks like this: If third dACK is received do the follo
      \item Once a ACK for new data arrives, set $cwnd = sstresh$.
 \end{enumerate}
 
-\subsection{Throughput}
+\section{Throughput}
 \subsection{Definitions}
 
 \textbf{Round Trip Time (RTT)}
@@ -326,9 +326,40 @@ Algorithm to find shortest path to all nodes.
 		\textbf{Beispiel}: Bild 1,2,4 sind im Cache. Wird jetzt Bild 3 angefordert wird Bild 4 nicht aus dem Cache geladen, sonder über die Persistente Verbindung geladen.
 	\end{flushleft}
 	
+	\item \textbf{Für was wird DNS benötigt und wie ist das Weltweite DNS aufgebaut?}
+	\begin{flushleft}
+		Wird benötigt um Namen(Domainadressen) in IPs aufzulösen. Der Aufbau von DNS ist hierarchisch angeordnet und die Namensauflösung kann iterativ oder rekursiv gelöst sein.
+	\end{flushleft}
+	
+	\item \textbf{Beschreiben sie in Pseudo-Code die Funktionsweise eines DNS Server.}
+	\begin{itemize}
+		\item UDP
+		\begin{lstlisting}[language=Python]
+udpSocket.listen(53)
+while True:
+	adress, data = udpSocket.blockingReceive()
+	udpSocket.send(adress, dnsMap.get(data))
+		\end{lstlisting}
+	\item TCP
+		\begin{lstlisting}[language=Python]
+while True:
+	socket = waitForTCPConnection()
+	new WorkerThread(socket)
+	
+WorkerTread(tcpSocket):
+	data = tcpSocket.blockingreceive()
+	tcpSocket.send(dnsMap.get(data))
+	tcpSocket.close()
+		\end{lstlisting}
+	\end{itemize}
+	
+	\item \textbf{Auf welcher Basis können Pakete dem UDP bzw. TCP Socket auf Port 53 zugewiesen werden?}
+	\begin{flushleft}
+		IP-Header hat ein Feld welches das Transportprotokoll angibt.
+	\end{flushleft}
+	
 \end{enumerate}
 
-\newpage
 \section{OSI Modell}
 \begin{figure}[!ht]
 	\centering
