@@ -213,7 +213,7 @@ The usual stuff. Use the most specific (smallest) subnet matching in routing.
 Metric is the amount of Hops.
 
 \subsection{Open Shortest Path First (OSPF)}
-Metric for route: $\sum{\frac{100 Mbits}{Bandwidth}}$ of all links.
+Metric for route: $\sum{max (\frac{100 Mbits}{Bandwidth}, 1)}$ of all links. So the least possible metric for one single link is 1.
 
 \subsection{Enhanced Gateway Routing Protocol (EGRP)}
 Metric for route: $ \frac{10 Gbps}{min(Bandwidth)} + \sum\limits_{link i}^{n} \frac{D_i}{10\mu s}$, with D=Delay
