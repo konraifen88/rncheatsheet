@@ -120,6 +120,13 @@ Numbering of data within segment. SEQ = first byte in the payload (data) of segm
 \textbf{Acknowledge Number (ACK)[header field]}
 Acknowledgement of received segments. Value is SEQ + 1, with SEQ = segment number of received segment.
 
+\textbf{Bandwidth-Delay-Product} 
+Necessary window size to use the full link capacity.\\
+Window in bit: $RTT \cdot C$ \\
+Window in packet count: $\frac{RTT \cdot C}{L}$ \\
+C is the link capacity, in case there are multiple links the bottleneck link capacity.
+
+
 \subsection{Sliding Window}
 Every time a ACK returns, the sender slides the Window over the bytes to send.
 \begin{figure}[h]
