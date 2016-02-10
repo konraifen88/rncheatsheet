@@ -57,8 +57,11 @@ Time spend waiting in buffer queues.
 \textbf{Overall Delay}
 Calculated: $d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$
 
-\textbf{End to End Delay}
-Also Known as one way delay. Time needed for packet to go from sender to receipient. Usually $\frac{RTT}{2}$. Excact: $T_{e2e} = \sum\limits_{i}^{n} d_{i}$, with $d_{i}$ = overall delay of network segment i. 
+\begin{flushleft}
+	\textbf{End to End Delay} [\textit{Übertragungsdauer}]\linebreak
+	Also Known as one way delay. Time needed for packet to go from sender to receipient. Usually $\frac{RTT}{2}$. Excact: $T_{e2e} = \sum\limits_{i}^{n} d_{i}$, with $d_{i}$ = overall delay of network segment i. 
+\end{flushleft}
+
 
 \textbf{End to End Delay for Multiple Packages}
 $T_{e2e}(n) = T_{e2e}(1) + (n-1) \cdot \frac{L}{B}$, with L = Size of one packet, B = Bandwidth of Bottleneck, n = number of Packages.
