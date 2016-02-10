@@ -230,5 +230,79 @@ Algorithm to find shortest path to all nodes.
 	
 \end{minipage}
 
+\newpage
+\section{Theoriefragen}
+\begin{enumerate}
+	\item \textbf{Was ist der Unterschied zwischen switching und routing?}
+	\begin{flushleft}
+		Routing auf IP-Ebene und kann verschiedene Subnetze verwalten, Switching auf MAC-Ebene (haben keine eigene IP).
+	\end{flushleft}
+	\item \textbf{Wie kann in einem Netz eine Änderung der verschiedenen Knoten/der Links zwischen den Knoten erkannt werden?}
+	\begin{itemize}
+		\item Broadcast von Hello-Paketen alle 10s, dadurch Erkennung von defekten Nachbarn (default Timeout: 40s)
+		\item Broadcast des Link-States bei Veränderung
+	\end{itemize}
+	\item \textbf{Was sind die Vor- und Nachteile von TCP}
+	\begin{itemize}
+		\item Vorteile
+			\begin{itemize}
+				\item Ist Ausfall sicherer als UDP (Verlorene Pakete werden nachgesendet).
+			\end{itemize}
+		\item Nachteile
+			\begin{itemize}
+				\item langsamer als UDP 
+				\item mehr Nachrichten
+			\end{itemize}
+	\end{itemize}
+	\item \textbf{Was sind die Vor- und Nachteile von UDP}
+	\begin{itemize}
+		\item Vorteile
+		\begin{itemize}
+			\item schneller als TCP
+			\item weniger Nachrichten
+			\item Broadcast möglich
+		\end{itemize}
+		\item Nachteile
+		\begin{itemize}
+			\item Verlorene Pakete werden nicht Nachgesendet
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Wie bestimmt der Browser welche IP-Adresse der zugehörige Webserver hat, und auf welchem Port er Anfragen zum Webserver schicken soll?}
+	\begin{itemize}
+		\item Anfrage an DNS-Server $ \longrightarrow $ Auflösen der URL in IP (fragt ggf. den nächst höheren)
+		\item Port ist Protokollabhängig: http = 80; https = 443
+	\end{itemize}
+	\item \textbf{Welche Protokolle auf Applikations- und Transportschicht werden verwendet, um Daten zwischen Browser und Webserver zu übertragen?}
+	\begin{itemize}
+		\item TCP
+		\item HTTP(s)
+	\end{itemize}
+	\item \textbf{Wie funktioniert ein Caching Proxy?}
+	\begin{itemize}
+		\item \textbf{Aufgabe Proxy}: Entscheiden was aus dem Internet im Cache gespeichert wird und ob angeforderte Daten aus dem Cache geladen werden (können).
+		\item \textbf{Aufgabe Cache}: Speichern, Verwalten und Bereitstellen von Daten die er vom Proxy zugeteilt bekommt.
+		\item \textbf{Sicherstellung das Cache aktuelle Seite bereitstellt}: Über Timeout von verschiedenen daten
+	\end{itemize}
+
+	\item \textbf{Was passiert im Falle von persistent HTTP, wenn der Cache den HTML-Code nicht gespeichert hat? Erklären Sie das Szenario. Eine exakte Berechnung der Page Load Time ist nicht notwendig!}
+	\begin{flushleft}
+		Zuerst wird der Proxy angefragt, ob die Seite im Cache vorhanden ist. Da dies nicht der Fall ist, wird eine Verbindung aufgebaut, der HTML-Code geholt und anschließend in der selben Verbindung die Bilder.\linebreak
+		\textbf{Anmerkung}: Bilder sind im Cache, da aber persistent Verbindung werden alle Bilder trotzdem von Internet geladen, da der Proxy nicht erneut angefragt wird.
+	\end{flushleft}
+	\item \textbf{Was passiert, wenn der Server persistent http unterstützt, der Cache aber nur non-persistent http? Betrachten Sie den Fall, dass der Cache den HTML-Code und die Hälfte der referenzierten Bilder gespeichert hat. Erklären Sie das Szenario. Eine exakte Berechnung der Page Load Time ist nicht notwendig!}
+	\begin{flushleft}
+		Dieses mal wird ebenfalls wieder der Proxy angefragt. Alle Elemente, welche im Cache liegen werden per Non-Persistent (jedes Objekt eigene Verbindung) geladen. Die fehlenden Dateien werden über eine Persistent Verbindung aus dem Internet geladen. Wird allerdings ein Element welches nicht im Cache vorhanden ist angefordert, wird eine persistente Verbindung erstellt. Alle weiteren Objekte werden dann über diese Verbindung geladen.\linebreak
+		\textbf{Beispiel}: Bild 1,2,4 sind im Cache. Wird jetzt Bild 3 angefordert wird Bild 4 nicht aus dem Cache geladen, sonder über die Persistente Verbindung geladen.
+	\end{flushleft}
+	
+\end{enumerate}
+
+\newpage
+\section{OSI Modell}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.5]{media/OSI-Modell}
+\end{figure}
+
 \end{document}
 
